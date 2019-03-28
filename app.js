@@ -1,7 +1,7 @@
 var express     = require("express"),
     bodyParser  = require("body-parser"),
     mongoose    = require("mongoose"),
-    seed        = require("seed.js");
+    seed        = require("./seed.js");
     
 var Parts = require("./models/parts.js");
     
