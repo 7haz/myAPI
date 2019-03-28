@@ -1,17 +1,19 @@
 var express     = require("express"),
     bodyParser  = require("body-parser"),
-    mongoose    = require("mongoose"); 
+    mongoose    = require("mongoose"),
+    seed        = require("seed.js");
     
 var Parts = require("./models/parts.js");
     
 var app = express();
 
+var dbـURL = "mongodb://Hod:Hod123@ds227146.mlab.com:27146/api_db";
 
 app.set("view engine","ejs");
 app.use(express.static(__dirname+"/public"));
 app.use(bodyParser.urlencoded({extended:true}));
 
-mongoose.connect("mongodb://localhost:27017/car_parts",{useNewUrlParser:true});
+mongoose.connect(dbـURL,{useNewUrlParser:true});
 
 
 app.get("/:id",function(req,res){
@@ -34,6 +36,4 @@ app.get("/*",function(req,res){
     res.send("Invalid URL format, please use this format ( / id )");
 })
 
-app.listen(8080,function(){
-    console.log("App is running on port 8080 !");
-})
+app.listen(process.env.PORT,process.env.IP);

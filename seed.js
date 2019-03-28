@@ -1,25 +1,30 @@
 
 
 // seed function 
+var mongoose = require("mongoose");
+var Part    =require("./models/parts.js");
+
+
 
 function seed(items){
     items.forEach(function(item){
-        Parts.create(item,function(err,createdItem){
+        var counter = 1;
+        Part.create(item,function(err,createdItem){
             if(err){
                 console.log("error creating item : "+item.title);
                 console.log(err);
             }else{
-                console.log("Item created succussfully,"+createdItem.title);
+                console.log(counter+"- Item created succussfully,"+createdItem.title);
+                counter++
             }
+            
         });
     });
 }
 
-seed(myitems);
+// car part info :
 
-// fj cruiser ..
-
-var arr = [{
+var myParts = [{
     _id : "2203031060",
     title : "Throttle body",
     price : "$585.65",
@@ -38,13 +43,6 @@ var arr = [{
     title : "Power steering reservoir",
     price : "$231.78",
     link : "https://parts.toyota.com/p/RESERVOIR-ASSEMBLY---VANE-PUMP-OIL/63544200/4436060321.html",
-    car : "Toyota, fj cruiser",
-    year : "2012" 
-},{
-    _id : "2220430010",
-    title : "Air mass sensor",
-    price : "$194.81",
-    link : "https://parts.toyota.com/p/METER-SUB-ASSEMBLY---INTAKE-AIR-FLOW/63134271/2220430010.html",
     car : "Toyota, fj cruiser",
     year : "2012" 
 },{
@@ -75,12 +73,7 @@ var arr = [{
     link : "https://parts.toyota.com/p/CANISTER-ASSEMBLY---CHARCOAL/63508357/7774035531.html",
     car : "Toyota, fj cruiser",
     year : "2012"
-}]
-
-
-// taurus and hilux 
-
-var myitems = [{
+},{
     _id : "9C3Z8101B",
     title : "Coolant Recovery Tank",
     price : "$51.99",
@@ -136,4 +129,6 @@ var myitems = [{
     link : "https://www.ebay.com/itm/Power-Steering-Pump-Fit-Toyota-Fortuner-Hilux-Innova-SW4-2-0L-1TR-FE-2-7L-2TR-FE-/182971887260",
     car : "Toyota, Hilux",
     year : "2013"
-}]
+}];
+
+
