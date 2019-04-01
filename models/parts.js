@@ -7,7 +7,8 @@ var partSchema = new mongoose.Schema({
     price : { type:String,required:true},
     link : { type:String},
     car : {type:String},
-    year : {type:String}
+    year : {type:String},
+    img : {type:String}
 })
 
 module.exports = mongoose.model("Part",partSchema);
