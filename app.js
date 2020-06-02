@@ -7,7 +7,7 @@ var Parts = require("./models/parts.js");
     
 var app = express();
 
-var dbـURL = "mongodb://Hod:Hod123@ds227146.mlab.com:27146/api_db";
+var dbـURL = "";
 
 app.set("view engine","ejs");
 app.use(express.static(__dirname+"/public"));
